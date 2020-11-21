@@ -1,0 +1,18 @@
+
+#regform{
+    height: 500px;
+    width: 80%;
+    border: 5px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+
+input{
+    background-color: #083529;
+    color: #FCBA04;
+    border-radius: 50px;
+    text-align: center;
+    align-self: center;
+}
+
+

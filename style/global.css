@@ -1,0 +1,42 @@
+@font-face{
+    font-family: poppins;
+    src:url('fonts/poppins/Poppins-Regular.ttf');
+}
+/*
+Colors:
+https://coolors.co/8f8b92-fcba04-1b2021-628b48-c200fb-083529-d7f9f1-9e2a2b
+
+
+        https://coolors.co/8f8b92-fcba04-1b2021-628b48-c200fb-d7f9f1-9e2a2b
+*/
+
+body{
+    margin:50px;
+    padding: 10px;
+    background-color: #1B2021;
+    color:#D7F9F1;
+    font-family: poppins;
+
+}
+
+.head_foot{
+    text-align: center;
+    border: 4px solid #FCBA04;
+    border-radius: 15px;
+    padding:5px;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+
+}
+
+#neptun{
+    font-size:5px;
+}
+
+
+/*
+style='font-size:10px'
+*/
