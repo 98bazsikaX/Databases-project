@@ -19,9 +19,7 @@ function countdown(){
 }
 
 function redirect(asd){
-    /*
-    TODO: Megcsinálni!
-    */
+
    where = asd;
     if(typeof where != 'string' || where == undefined){
         where = 'index.php';

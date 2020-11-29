@@ -36,6 +36,24 @@ footer{
     font-size:5px;
 }
 
+a{
+    text-decoration: none;
+}
+a:hover{
+    color:whitesmoke;
+}
+
+a:visited{
+    color:whitesmoke;
+}
+
+a:active{
+    color:whitesmoke;
+}
+a:link{
+    color:whitesmoke;
+}
+
 
 /*
 style='font-size:10px'

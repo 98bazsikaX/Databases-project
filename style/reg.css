@@ -15,4 +15,6 @@ input{
     align-self: center;
 }
 
-
+.log{
+    border: 10px solid yellowgreen;
+}

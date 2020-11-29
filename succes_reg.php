@@ -16,11 +16,11 @@
 <body>
 <?php
     include_once("scripts/php/header.php");
-    echo "<h1>Sikeres Regisztráció ". $_GET['srnm']." néven!</h1>";
+    echo "<h1> ". $_GET['srnm']."</h1>";
 ?>
-
+    <a href="index.php">Főoldal</a>
 <script>
-    redirect(new Number(420));
+    //redirect(new Number(420));
 </script>
 <?php
     include_once("scripts/php/footer.php");

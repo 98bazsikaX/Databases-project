@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(session_status() == PHP_SESSION_NONE || (!isset($_COOKIE['logged_in'])  || $_COOKIE['logged_in'] == 'false' )){
+        header("Location: /errorpage.php?hiba=Sajnos ön nincs bejelentkezve ezért nem hozhat létre szavazást!");
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -9,6 +17,7 @@
 </head>
 <body>
     <!-- Első php include-->
+<a href='index.php'>Főoldal</a>
 <?php
 require_once("scripts/php/header.php");
 name("Szavazás létrehozása");
@@ -20,7 +29,7 @@ name("Szavazás létrehozása");
             <input type="text" id="name" name="name" maxlength="16">
             <br>
             <label id="label_for_nr">Opciók száma</label>
-            <input type="number" id="nr_of_options" name="nr_of_options" value="0">
+            <input type="number" id="nr_of_options" name="nr_of_options">
             <br>
             <button onclick="createForm()" id="make_button">Forma létrehozása</button>
             <!-- <button onclick="add_option()" class="add_button" disabled>Opció hozzáadása</button> TODO: Megcsinálni h a többinél is legyen törlés (ha lehet ilyet) -->
@@ -31,32 +40,29 @@ name("Szavazás létrehozása");
    <!--  <button onclick="add_option()" class="add_button" disabled>Opció hozzáadása</button>  TODO: Ugyanaz mint fent-->
    <div id="settings">
    <label>Privát szavazás:</label>
-    <input type="radio" name="private" id="true">
-    <label for="true">Igen</label>
     <br>
-    <input type="radio" name="private" id="false">
-    <label for="false">Nem</label>
+    
    </div>
     <input type="reset" name="rst" id="reset" disabled>
     <input type="submit" name="submit_poll" id="submitbutton" value="Szavazás létrehozása" disabled>
     
     </form>
 </div>
-<!-- TODO: MEGCSINÁLNI AZT H ELKÜLDJE A FORMOT!!!!!!!!!!!!!-->
 
 <?php
-
+include_once("scripts/php/save_poll.php");
 if(isset($_POST['submit_poll'])){
-    $asd = $_POST['name'] . "   Első opció: " . $_POST['option_1'] . " Opciók száma: " . $_POST['nr_of_options'];
-    header("Location: /errorpage.php?hiba=Sikeresen létrehozta az adatbázist! $asd ");
+    $options = array();
+    $nr = intval($_POST['nr_of_options']);
+    for($i = 1;$i<=$nr;++$i){
+        array_push($options,$_POST['option_'.$i]);
+    }
+    $auth = $_COOKIE['username'];
+    save_poll($_POST['name'],$auth,$options);
+
 }
-
-
-
 ?>
-
-
-
+<!-- Poll feltöltésének vége-->
 
 <!-- Második php include footernek-->
 <?php

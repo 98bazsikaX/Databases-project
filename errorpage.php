@@ -17,8 +17,7 @@
     echo "<h1>HIBA! <br> </h1>";
     echo "<p>".$_GET['hiba']."</p>"
     ?>
-<script>
-    redirect();
-</script>
+    <a href="index.php">Főoldal</a>
+
 </body>
 </html>

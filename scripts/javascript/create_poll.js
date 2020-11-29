@@ -1,12 +1,15 @@
 function createForm(){
+    if((parseInt(document.getElementById("nr_of_options").value) < 2) || (document.getElementById("nr_of_options").value == '')){
+        alert("Minimum két opciót adj meg pls!"); 
+        return;
+    }
     document.getElementById("make_button").disabled = true;
     document.querySelectorAll('.add_button').forEach(function(button){
         //console.log("ENTERED ! ");
         button.disabled = false;
-       //button.style.display = "none";
     });
     //console.log(document.getElementById("name").value);
-    document.getElementById("nr_of_options").disabled = true;
+    document.getElementById('nr_of_options').readOnly= true;
     options = parseInt(document.getElementById("nr_of_options").value); /*Globális scopeba kell hogy legyen*/
     max_option = options;
     console.log(options);
@@ -28,15 +31,15 @@ function createForm(){
         document.getElementById("geninputs").appendChild(text);
 
         /*szövegmező létrehozása*/
-        let input = document.createElement('P');
-        console.log('input');
-       /*  input.classList.add(id);
+        let input = document.createElement('input');
+        //console.log('input');
+        input.classList.add(id);
         input.setAttribute('type','text');
         input.setAttribute('maxlength','16');
         input.setAttribute('name',id);
-        //input.name = id;
+        input.name = id;
         console.log(input.getAttribute('name'));
-        input.required = true; */
+        input.required = true; 
         //let input =document.createElement(`<input type="text" name="${id}" value="${i + 1}" maxlength="16" class="${id}" required>`);
 
         document.getElementById("geninputs").appendChild(input);
@@ -88,9 +91,7 @@ function createForm(){
 }
  */
 function delete_option(id){
-    /*
-    TODO: VALAMI FOS GECI AZT OKOZZA HOGY HA KISEBB 3-nál AZ ÖSSZ LEHETŐSÉGEK SZÁMA AKKOR KURVÁRA KITÖRÖL MINDENT (IS)
-    */
+
     document.querySelectorAll("."+id).forEach(function(element){
         element.remove();
     });
